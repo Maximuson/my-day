@@ -148,6 +148,7 @@ header h1 {
 
 .disabled {
   opacity: 0.5;
+  background-color: #020202;
 }
 
 .selected-day {
