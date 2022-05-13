@@ -1,42 +1,45 @@
-import React, { useContext } from "react";
-import { CalendarContext, sameDay } from "../context/CalendarContext";
-import { contrast } from "../utils/utils";
-import Task from "./Task";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setCalendarDate } from "../../store/actions/calendar";
+import Day from "./Day/Day";
+import Header from "./Header/Header";
+// import Day from "./Day/";
 
-function Day({ day, date }) {
-  const { setTask, setDate } = useContext(CalendarContext);
+function Calendar() {
+  const dispatch = useDispatch();
 
-  const getStyle = (color) => {
-    return { background: color, color: contrast(color) };
-  };
+  const date = useSelector((state) => state.calendar.date);
+  const days = useSelector((state) => state.calendar.days);
 
-  const selected = sameDay(day.date, date);
-  
-  const style =
-    (day.date.getMonth() !== date.getMonth() ? " disabled" : "") +
-    (sameDay(day.date, new Date()) ? " current-day" : "") +
-    (selected ? " selected-day" : "");
+  setCalendarDate();
+
+  useEffect(() => {
+    dispatch(setCalendarDate(new Date()));
+    // eslint-disable-next-line
+  }, []);
+
+  if (days.length < 1) return null;
+
+  const names = ["Пон", "Вів", "Сер", "Чет", "Пят", "Суб", "Нед"];
 
   return (
-    <div  className={`day ${style}`} onClick={() => setDate(day.date)}>
-      <div className="task-day">
-        <div className="tasks">
-          {day.tasks.map((task) => (
-            <Task key={task.id} task={task} style={getStyle(task.color)} />
+    <div>
+      <Header />
+      <div>
+        <div className="calendar borderless day-names">
+          {names.map((name) => (
+            <h5 key={name}>{name}</h5>
           ))}
         </div>
-        <h3> {day.date.getDate()} </h3>
-      </div>
-      {selected ? (
-        <div
-          className="button button-blue add-button"
-          onClick={() => setTask({})}
-        >
-          +
+        <div className="calendar">
+          {days.map((day) => (
+            <Day key={day.date} day={day} date={date} />
+          ))}
         </div>
-      ) : null}
+        <input type={"date"} />
+      </div>
     </div>
   );
 }
 
-export default Day;
+export default Calendar;

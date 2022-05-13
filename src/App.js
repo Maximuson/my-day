@@ -4,6 +4,7 @@ import { showNotifications } from "./store/actions/notifications";
 
 import "./App.css";
 import LoginPage from "./Pages/Login/LoginPage";
+import Calendar from "./Components/Calendar/Calendar";
 
 // import UsersService from "./UsersService";
 function App() {
@@ -42,7 +43,7 @@ function App() {
 
   return <div className="App">
 
-    <LoginPage />
+    <Calendar />
   </div>;
 }
 

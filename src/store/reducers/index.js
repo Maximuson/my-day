@@ -1,8 +1,9 @@
 import notifications from "./notifications";
+import calendar from "./calendar"
 
 const { combineReducers } = require("redux");
 
-const appReducer = combineReducers({ notifications: notifications });
+const appReducer = combineReducers({ notifications: notifications, calendar: calendar });
 
 const rootReducer = (state, action) => {
   if (action.type === "LOGOUT_USER") {
