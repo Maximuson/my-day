@@ -293,3 +293,7 @@ header h1 {
 input::placeholder {
   color: #e4e4e4;
 }
+
+.main {
+  width: 100%;
+}

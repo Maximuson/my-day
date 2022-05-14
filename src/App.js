@@ -5,6 +5,7 @@ import { showNotifications } from "./store/actions/notifications";
 import "./App.css";
 import LoginPage from "./Pages/Login/LoginPage";
 import Calendar from "./Components/Calendar/Calendar";
+import Header from "./Components/Header/Header";
 
 // import UsersService from "./UsersService";
 function App() {
@@ -41,10 +42,14 @@ function App() {
     dispatch(showNotifications({ text: "some text" }));
   }, []);
 
-  return <div className="App">
-
-    <Calendar />
-  </div>;
+  return (
+    <div className="app">
+      <Header />
+      <main className="main">
+        <Calendar />
+      </main>
+    </div>
+  );
 }
 
 export default App;

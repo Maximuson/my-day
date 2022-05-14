@@ -26,10 +26,10 @@ const setDatabase = (db) => {
 const setDate = (state, action) => {
   const date = action.payload;
   // Calendar Start Day
-  const d1 = new Date(date.getFullYear(), date.getMonth() - 1, 1);
+  const d1 = new Date(date.getFullYear(), date.getMonth(), 1);
   d1.setDate(d1.getDate() - (d1.getDay() === 0 ? 7 : d1.getDay()));
   // Calendart End Day
-  const d2 = new Date(date.getFullYear(), date.getMonth() + 2, 0);
+  const d2 = new Date(date.getFullYear(), date.getMonth() + 1, 0);
   if (d2.getDay() !== 0) d2.setDate(d2.getDate() + (7 - d2.getDay()));
 
   const db = getDatabase();

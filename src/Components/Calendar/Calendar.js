@@ -36,7 +36,6 @@ function Calendar() {
             <Day key={day.date} day={day} date={date} />
           ))}
         </div>
-        <input type={"date"} />
       </div>
     </div>
   );

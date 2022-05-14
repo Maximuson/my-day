@@ -5,13 +5,17 @@ import App from "./App";
 // import reportWebVitals from "./reportWebVitals";
 
 import store from "./store";
-
+import 'rsuite/dist/rsuite.min.css'
+import "./rsuite-theme.scss"
 import "./index.css";
+import { CustomProvider } from "rsuite";
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
+      <CustomProvider theme="dark">
       <App />
+      </CustomProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")

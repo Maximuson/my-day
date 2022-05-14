@@ -1,0 +1,16 @@
+.header {
+    position: relative;
+    z-index: 2;
+    transition: all 0.2s linear;
+    background-color: #1e1e1e;
+
+    nav {
+        position: sticky;
+        top: 0;
+    }
+    nav[class*="rs-sidenav-default"],
+    a[class*="rs-sidenav-item"],
+    button[class*="rs-dropdown-toggle"] {
+        background-color: #1e1e1e !important;
+    }
+}
