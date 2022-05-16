@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Dropdown, Nav, Sidenav, Toggle } from "rsuite";
+import { Dropdown, Nav, Sidenav } from "rsuite";
 import { Dashboard, Calendar, Storage, Search } from "@rsuite/icons";
 import styles from "./Header.module.scss";
 
