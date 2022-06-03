@@ -1,6 +1,7 @@
 import * as actionTypes from "../actions/actionTypes";
 import { updateObject } from "../utility.js";
 
+// Notifications state
 const initialState = {
   text: false,
   isError: true,

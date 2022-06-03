@@ -25,7 +25,7 @@ function App() {
     const userId = localStorage.getItem("userId");
 
     if (userId) {
-      return;
+      return false;
     }
 
     // UsersService.login({ email: "test2@gmail.com", password: "123456" })
@@ -39,15 +39,14 @@ function App() {
   }, []);
 
   useEffect(() => {
-    dispatch(showNotifications({ text: "some text" }));
-  }, []);
+    dispatch(showNotifications({ text: "some text", isError: false }));
+  }, [dispatch]);
 
   return (
     <div className="app">
       <Header />
-      <main className="main">
-        <p>Tes</p>
-        <Calendar />
+      <main className="main full-height">
+        <Calendar  />
       </main>
     </div>
   );

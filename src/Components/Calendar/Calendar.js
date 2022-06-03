@@ -5,7 +5,7 @@ import Day from "./Day/Day";
 import Header from "./Header/Header";
 // import Day from "./Day/";
 
-function Calendar() {
+function Calendar({ handler }) {
   const dispatch = useDispatch();
 
   const date = useSelector((state) => state.calendar.date);
@@ -23,15 +23,15 @@ function Calendar() {
   const names = ["Пон", "Вів", "Сер", "Чет", "Пят", "Суб", "Нед"];
 
   return (
-    <div>
+    <div className="full-height">
       <Header />
-      <div>
+      <div className="full-height">
         <div className="calendar borderless day-names">
           {names.map((name) => (
             <h5 key={name}>{name}</h5>
           ))}
         </div>
-        <div className="calendar">
+        <div className="calendar full-height">
           {days.map((day) => (
             <Day key={day.date} day={day} date={date} />
           ))}

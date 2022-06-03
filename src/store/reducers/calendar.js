@@ -1,6 +1,7 @@
 import * as actionTypes from "../actions/actionTypes";
 import { sameDay, updateObject } from "../utility.js";
 
+// Calendar state
 const initialState = {
   date: new Date(),
   days: [],

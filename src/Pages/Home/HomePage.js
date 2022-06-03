@@ -1,12 +1,13 @@
-import React from 'react'
-import Calendar from '../../Components/Calendar/Calendar'
+import React from "react";
+import Calendar from "../../Components/Calendar/Calendar";
 
 const HomePage = () => {
-  return (
-    <div>
-        <Calendar />
-    </div>
-  )
-}
 
-export default HomePage
+  return (
+    <div className={`d-flex flex-grow-1 d-lg-flex`}>
+      <Calendar />
+    </div>
+  );
+};
+
+export default HomePage;

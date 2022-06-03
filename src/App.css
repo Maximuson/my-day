@@ -1,3 +1,14 @@
 .app {
     display: flex;
 }
+
+.full-height {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 100%;
+}
+
+.h-100 {
+    height: 100%;
+}

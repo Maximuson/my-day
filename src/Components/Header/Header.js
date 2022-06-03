@@ -11,7 +11,7 @@ const Header = () => {
     setExpanded(!expanded);
   };
   return (
-    <div className={styles.header} style={{ width: expanded ? 240 : 55 }}>
+    <div className={`${styles.header} ${styles.header}`} style={{ width: expanded ? 240 : 55 }}>
       {/* <Toggle
         onChange={setExpanded}
         checked={expanded}
@@ -27,11 +27,11 @@ const Header = () => {
       >
         <Sidenav.Body>
           <Nav>
-            <Nav.Item active={false} eventKey="0" icon={<Search />} onClick={toggleMenu}>
+            <Nav.Item  active={false} eventKey="0" icon={<Search />} onClick={toggleMenu}>
               Згорнути
             </Nav.Item>
             <Nav.Item eventKey="2" icon={<Calendar />}>
-              Плани
+              Заплановані
             </Nav.Item>
             <Nav.Item eventKey="3" icon={<Dashboard />}>
               Статистика
@@ -39,13 +39,14 @@ const Header = () => {
             <Dropdown
               placement="rightStart"
               eventKey="4"
-              title="Спрінти"
+              title="Пріоритети"
               icon={<Storage />}
             >
-              <Dropdown.Item eventKey="4-1">Geo</Dropdown.Item>
-              <Dropdown.Item eventKey="4-2">Devices</Dropdown.Item>
-              <Dropdown.Item eventKey="4-3">Loyalty</Dropdown.Item>
-              <Dropdown.Item eventKey="4-4">Visit Depth</Dropdown.Item>
+              <Dropdown.Item eventKey="4-1">Всі</Dropdown.Item>
+              <Dropdown.Item eventKey="4-2">Важливі і термінові </Dropdown.Item>
+              <Dropdown.Item eventKey="4-3">Важливі, але не термінові</Dropdown.Item>
+              <Dropdown.Item eventKey="4-4">Термінові але не важливі</Dropdown.Item>
+              <Dropdown.Item eventKey="4-5">Не важливі і нетермінові</Dropdown.Item>
             </Dropdown>
           </Nav>
         </Sidenav.Body>
