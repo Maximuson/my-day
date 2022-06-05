@@ -33,3 +33,8 @@ export function contrast(color, threshold = 0.5) {
   let d = luminance > threshold ? "000000" : "ffffff";
   return `${color.charAt(0) === "#" ? "#" : ""}${d}`;
 }
+
+
+export function randomIntFromInterval(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}

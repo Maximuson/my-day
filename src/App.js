@@ -1,3 +1,5 @@
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { showNotifications } from "./store/actions/notifications";
@@ -6,6 +8,7 @@ import "./App.css";
 import LoginPage from "./Pages/Login/LoginPage";
 import Calendar from "./Components/Calendar/Calendar";
 import Header from "./Components/Header/Header";
+import Statistic from "./Components/Statistic/Statistic";
 
 // import UsersService from "./UsersService";
 function App() {
@@ -44,10 +47,30 @@ function App() {
 
   return (
     <div className="app">
-      <Header />
-      <main className="main full-height">
-        <Calendar  />
-      </main>
+      <Router>
+        <Switch>
+          <Route path={"/login"}>
+            <LoginPage />
+          </Route>
+          <Route path={"/"}>
+            <>
+              <Header />
+              <main className="main full-height">
+                {/*<Router>*/}
+                <Switch>
+                  <Route path={"/calendar"}>
+                    <Calendar />
+                  </Route>
+                  <Route path={"/statistic"}>
+                    <Statistic />
+                  </Route>
+                </Switch>
+                {/*</Router>*/}
+              </main>
+            </>
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }

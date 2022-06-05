@@ -1,5 +1,5 @@
 import axios from "axios";
-import {FIREBASE_API_KEY} from "./consts"
+import {FIREBASE_API_KEY} from "../consts"
 
 class UsersService {
   static async getUserData(name = "") {
@@ -48,10 +48,12 @@ class UsersService {
       return response.data;
   }
 
-  static async addTask(name, task) {
+  static async addTask(userId, task) {
     const response = await axios.put(
-      `https://my-day-sandbox-default-rtdb.europe-west1.firebasedatabase.app/`
+      `https://my-day-sandbox-default-rtdb.europe-west1.firebasedatabase.app/users/${userId}/tasks`
     );
+
+    return response.data;
   }
 }
 
