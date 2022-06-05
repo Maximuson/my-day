@@ -23,10 +23,10 @@ const Statistic = () => {
     setTimeout(() => {
       setDataLoaded(true);
       setStatisticData({
-        A: 6,
-        B: 4,
+        A: 9,
+        B: 3,
         C: 5,
-        D: 8,
+        D: 6,
       });
     }, 1000);
   }, []);

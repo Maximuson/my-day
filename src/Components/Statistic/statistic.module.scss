@@ -22,6 +22,9 @@ $block-D: #9e9e9e;
 
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "a a"
+    "a a";
   grid-gap: 30px;
   //grid-auto-columns: 1fr 20px 1fr;
 
@@ -35,9 +38,9 @@ $block-D: #9e9e9e;
   }
 
   &::before {
-    height: 100%;
+    height: 10%;
     width: 1px;
-    border-left: 1px dashed #0d822c;
+    border-left: 1px dashed $block-D;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -200%);
@@ -45,8 +48,8 @@ $block-D: #9e9e9e;
 
   &::after {
     height: 1px;
-    width: 100%;
-    border-top: 1px dashed #0d822c;
+    width: 10%;
+    border-top: 1px dashed $block-D;
     top: 50%;
     left: 50%;
     transform: translate(-200%, -50%);
@@ -87,7 +90,7 @@ $block-D: #9e9e9e;
   height: 25vh;
   z-index: -1;
 
-  transition: all .3s ease-out;
+  transition: all 0.3s ease-out;
 }
 
 .blockA {
@@ -98,6 +101,13 @@ $block-D: #9e9e9e;
     bottom: 0;
     background-color: $block-A;
   }
+
+  &:hover ~ .arrowUpContainer,
+  &:hover ~ .arrowRightContainer {
+    .arrowText {
+      color: $block-A;
+    }
+  }
 }
 
 .blockB {
@@ -107,6 +117,13 @@ $block-D: #9e9e9e;
     bottom: 0;
     background-color: $block-B;
   }
+
+  &:hover ~ .arrowUpContainer,
+  &:hover ~ .arrowLeftContainer {
+    .arrowText {
+      color: $block-B;
+    }
+  }
 }
 
 .blockC {
@@ -115,6 +132,13 @@ $block-D: #9e9e9e;
     left: 0;
     top: 0;
     background-color: $block-C;
+  }
+
+  &:hover ~ .arrowRightContainer,
+  &:hover ~ .arrowDownContainer {
+    .arrowText {
+      color: $block-C;
+    }
   }
 }
 
@@ -129,13 +153,13 @@ $block-D: #9e9e9e;
 
 .arrowText {
   line-height: 1;
-  font-weight: bold;
+  font-weight: 100;
   position: absolute;
   transform: translate(-50%, -57%);
   width: 100px;
   overflow: hidden;
   transition: all 0.3s;
-  color: #0d822c;
+  color: $block-D;
 
   &::after {
     display: block;
@@ -155,14 +179,14 @@ $block-D: #9e9e9e;
   position: absolute;
   display: flex;
   left: 50%;
-  bottom: 77%;
+  bottom: 50vh;
   transform: rotateZ(-90deg) translateY(-100%);
   z-index: 1;
 }
 
 .arrowRightContainer {
   position: absolute;
-  left: 77%;
+  left: 50vh;
   top: 50%;
   z-index: 1;
 }
@@ -171,14 +195,14 @@ $block-D: #9e9e9e;
   position: absolute;
   display: flex;
   left: 50%;
-  top: 77%;
+  top: 47vh;
   transform: rotateZ(-90deg) translateY(-100%);
   z-index: 1;
 }
 
 .arrowLeftContainer {
   position: absolute;
-  right: 77%;
+  right: 48vh;
   top: 50%;
   z-index: 1;
 }
@@ -199,10 +223,7 @@ $block-D: #9e9e9e;
   }
 
   .block {
-
   }
-
-
 
   .arrowText {
     &::after {
@@ -212,8 +233,6 @@ $block-D: #9e9e9e;
 }
 
 .paintBlock {
-
-
   .block {
     opacity: 1;
     filter: grayscale(0%);
